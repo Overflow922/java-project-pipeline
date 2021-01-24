@@ -9,6 +9,7 @@
 plugins {
     // Apply the java-library plugin to add support for Java Library
     `java-library`
+     id("com.github.spotbugs") version "4.6.0"
 }
 
 repositories {
@@ -27,3 +28,16 @@ dependencies {
     // Use JUnit test framework
     testImplementation("junit:junit:4.12")
 }
+
+buildscript {
+    repositories {
+        maven {
+            url = uri("https://plugins.gradle.org/m2/")
+        }
+    }
+    dependencies {
+        classpath("gradle.plugin.com.github.spotbugs.snom:spotbugs-gradle-plugin:4.6.0")
+    }
+}
+
+apply(plugin = "com.github.spotbugs")
