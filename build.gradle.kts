@@ -10,6 +10,7 @@ plugins {
     // Apply the java-library plugin to add support for Java Library
     `java-library`
      id("com.github.spotbugs") version "4.6.0"
+    jacoco
 }
 
 repositories {
@@ -41,3 +42,37 @@ buildscript {
 }
 
 apply(plugin = "com.github.spotbugs")
+
+
+
+tasks.test {
+    finalizedBy(tasks.jacocoTestReport) // report is always generated after tests run
+}
+tasks.jacocoTestReport {
+    dependsOn(tasks.test) // tests are required to run before generating the report
+    dependsOn(tasks.jacocoTestCoverageVerification)
+}
+
+
+jacoco {
+    toolVersion = "0.8.6"
+    reportsDirectory.set(file("$buildDir/customJacocoReportDir"))
+}
+
+tasks.jacocoTestReport {
+    reports {
+        xml.isEnabled = false
+        csv.isEnabled = false
+        html.destination = file("${buildDir}/jacocoHtml")
+    }
+}
+
+tasks.jacocoTestCoverageVerification {
+    violationRules {
+        rule {
+            limit {
+                minimum = "0.95".toBigDecimal()
+            }
+        }
+    }
+}
