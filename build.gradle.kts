@@ -15,11 +15,15 @@ dependencies {
     // This dependency is exported to consumers, that is to say found on their compile classpath.
     api("org.apache.commons:commons-math3:3.6.1")
 
+    api("org.apache.logging.log4j:log4j-api:2.14.0")
+    api("org.apache.logging.log4j:log4j-core:2.14.0")
+    api("com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.12.1")
+    api("com.fasterxml.jackson.core:jackson-databind:2.12.1")
+
     // This dependency is used internally, and not exposed to consumers on their own compile classpath.
     implementation("com.google.guava:guava:26.0-jre")
 
-    // Use JUnit test framework
-    testImplementation("junit:junit:4.12")
+    testImplementation("org.junit.jupiter:junit-jupiter-api:5.7.1")
 }
 
 buildscript {
