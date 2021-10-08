@@ -40,6 +40,7 @@ buildscript {
 apply(plugin = "com.github.spotbugs")
 
 tasks.test {
+    useJUnitPlatform {}
     finalizedBy(tasks.jacocoTestReport) // report is always generated after tests run
 }
 tasks.jacocoTestReport {
