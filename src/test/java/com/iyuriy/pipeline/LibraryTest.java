@@ -7,12 +7,18 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class LibraryTest {
     @Test
     public void testAddition() {
-        assertEquals(1, (new Library()).addition(2, 2));
+        assertEquals(4, (new Library()).addition(2, 2));
     }
 
     @Test
     public void testSubstraction() {
-        assertEquals(7, (new Library()).substraction(1, 1));
+        assertEquals(0, (new Library()).substraction(1, 1));
     }
+    
+    @Test
+    public void testMultiplication() {
+        assertEquals(6, (new Library()).multiplication(3, 2));
+    }
+    
 }
 
