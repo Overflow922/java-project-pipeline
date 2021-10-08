@@ -9,6 +9,7 @@ repositories {
     // Use jcenter for resolving your dependencies.
     // You can declare any Maven/Ivy/file repository here.
     jcenter()
+    mavenCentral()
 }
 
 dependencies {
@@ -21,9 +22,9 @@ dependencies {
     api("com.fasterxml.jackson.core:jackson-databind:2.12.1")
 
     // This dependency is used internally, and not exposed to consumers on their own compile classpath.
-    implementation("com.google.guava:guava:26.0-jre")
+    implementation("com.google.guava:guava:31.0.1-jre")
 
-    testImplementation("org.junit.jupiter:junit-jupiter-api:5.7.1")
+    testImplementation("org.junit.jupiter:junit-jupiter-api:5.8.1")
 }
 
 buildscript {
@@ -41,6 +42,8 @@ apply(plugin = "com.github.spotbugs")
 
 tasks.test {
     useJUnitPlatform {}
+    testLogging {
+    }
     finalizedBy(tasks.jacocoTestReport) // report is always generated after tests run
 }
 tasks.jacocoTestReport {
