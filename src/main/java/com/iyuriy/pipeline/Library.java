@@ -8,5 +8,9 @@ public class Library {
     public int substraction(int a, int b) {
         return a - b;
     }
-
+    
+    public int equation(int a, int b) {
+        return a * b;
+    }
+    
 }
