@@ -9,7 +9,7 @@ public class Library {
         return a - b;
     }
     
-    public int equation(int a, int b) {
+    public int multiplication(int a, int b) {
         return a * b;
     }
     
