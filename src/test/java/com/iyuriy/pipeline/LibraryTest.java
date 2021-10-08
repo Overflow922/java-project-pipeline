@@ -14,5 +14,10 @@ public class LibraryTest {
     public void testSubstraction() {
         assertEquals(0, (new Library()).substraction(1, 1));
     }
+    
+    @Test
+    public void testMultiplication() {
+        assertEquals(6, (new Library()).multiplication(3, 2));
+    }
+    
 }
-
