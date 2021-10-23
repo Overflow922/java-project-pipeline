@@ -4,7 +4,7 @@ import org.gradle.api.tasks.testing.logging.TestLogEvent.*
 plugins {
     // Apply the java-library plugin to add support for Java Library
     `java-library`
-    id("com.github.spotbugs") version "4.7.9"
+    id("com.github.spotbugs") version "4.7.1"
     jacoco
 }
 
@@ -42,7 +42,7 @@ buildscript {
         }
     }
     dependencies {
-        classpath("com.github.spotbugs.snom:spotbugs-gradle-plugin:4.7.9")
+        classpath("gradle.plugin.com.github.spotbugs.snom:spotbugs-gradle-plugin:4.7.1")
     }
 }
 
@@ -92,6 +92,6 @@ configurations.all {
     resolutionStrategy {
 // Fail eagerly on version conflict (includes transitive dependencies)
 // e.g. multiple different versions of the same dependency (group and name are equal)
-        failOnVersionConflict()
+//        failOnVersionConflict()
     }
 }
